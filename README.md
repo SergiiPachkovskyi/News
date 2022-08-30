@@ -23,7 +23,7 @@ API for news management
 * Django REST Framework
 * PostgreSQL
 * JWT
-* unittest
+* UnitTest
 
 # Setup
 
