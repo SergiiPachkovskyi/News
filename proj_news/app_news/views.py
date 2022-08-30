@@ -3,9 +3,9 @@ from django.shortcuts import render
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
-from .models import News
-from .permission import IsAdminOrOwnerOrReadOnly
-from .serializers import NewsSerializer
+from .models import News, Category
+from .permission import IsAdminOrOwnerOrReadOnly, IsAdminOrReadOnly
+from .serializers import NewsSerializer, CategorySerializer
 
 
 class NewsListCreate(generics.ListCreateAPIView):
@@ -35,3 +35,15 @@ class NewsByUserRetrieve(generics.ListAPIView):
     def get_queryset(self):
         user_id = self.kwargs.get('user_id')
         return News.objects.filter(user_id=user_id)
+
+
+class CategoryListCreate(generics.ListCreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+
+class CategoryRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    permission_classes = (IsAdminOrReadOnly,)

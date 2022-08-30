@@ -19,7 +19,8 @@ from django.urls import path, include
 
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 
-from app_news.views import NewsListCreate, NewsRetrieveUpdateDestroy, NewsByCategoryRetrieve, NewsByUserRetrieve
+from app_news.views import NewsListCreate, NewsRetrieveUpdateDestroy, NewsByCategoryRetrieve, NewsByUserRetrieve, \
+    CategoryListCreate, CategoryRetrieveUpdateDestroy
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +30,10 @@ urlpatterns = [
     path('api/v1/news/<int:pk>/', NewsRetrieveUpdateDestroy.as_view()),
     path('api/v1/news_by_category/<int:cat_id>/', NewsByCategoryRetrieve.as_view()),
     path('api/v1/news_by_user/<int:user_id>/', NewsByUserRetrieve.as_view()),
+
+    # category
+    path('api/v1/category/', CategoryListCreate.as_view()),
+    path('api/v1/category/<int:pk>/', CategoryRetrieveUpdateDestroy.as_view()),
 
     # session-based auth
     path('api/v1/drf-auth/', include('rest_framework.urls')),

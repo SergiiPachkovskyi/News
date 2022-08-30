@@ -5,17 +5,22 @@ News
 API for news management
 
 # Routes to implement
-| METHOD   | ROUTE                                   | FUNCTIONALITY        |
-|----------|-----------------------------------------|----------------------|
-| *POST*   | ```/api/v1/jwt/signup```                | register new user    |
-| *POST*   | ```/api/v1/jwt/login```                 | login user           |
-| *GET*    | ```/api/v1/news/```                     | details of all news  |
-| *POST*   | ```/api/v1/news/```                     | create a news        |
-| *GET*    | ```/api/v1/news/{pk}```                 | details of news      |
-| *PUT*    | ```/api/v1/news/{pk}```                 | update news          |
-| *DELETE* | ```/api/v1/news/{pk}```                 | delete news          |
-| *GET*    | ```/api/v1/news_by_user/{user_id}```    | get news by user     |
-| *GET*    | ```/api/v1/news_by_category/{cat_id}``` | get news by category |
+| METHOD   | ROUTE                                   | FUNCTIONALITY           |
+|----------|-----------------------------------------|-------------------------|
+| *POST*   | ```/api/v1/jwt/signup```                | register new user       |
+| *POST*   | ```/api/v1/jwt/login```                 | login user              |
+| *GET*    | ```/api/v1/news/```                     | details of all news     |
+| *POST*   | ```/api/v1/news/```                     | create a news           |
+| *GET*    | ```/api/v1/news/{pk}```                 | details of news         |
+| *PUT*    | ```/api/v1/news/{pk}```                 | update news             |
+| *DELETE* | ```/api/v1/news/{pk}```                 | delete news             |
+| *GET*    | ```/api/v1/news_by_user/{user_id}```    | get news by user        |
+| *GET*    | ```/api/v1/news_by_category/{cat_id}``` | get news by category    |
+| *GET*    | ```/api/v1/category/```                 | details of all category |
+| *POST*   | ```/api/v1/category/```                 | create a category       |
+| *GET*    | ```/api/v1/category/{pk}```             | details of category     |
+| *PUT*    | ```/api/v1/category/{pk}```             | update category         |
+| *DELETE* | ```/api/v1/category/{pk}```             | delete category         |
 
 # Technologies
 * Python 3
