@@ -4,6 +4,7 @@ from rest_framework import generics
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from .models import News, Category
+from .paginations import NewsPagination
 from .permission import IsAdminOrOwnerOrReadOnly, IsAdminOrReadOnly
 from .serializers import NewsSerializer, CategorySerializer
 
@@ -12,6 +13,7 @@ class NewsListCreate(generics.ListCreateAPIView):
     queryset = News.objects.all()
     serializer_class = NewsSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
+    pagination_class = NewsPagination
 
 
 class NewsRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
