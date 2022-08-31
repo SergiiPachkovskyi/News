@@ -3,6 +3,10 @@ from django.db import models
 
 
 class News(models.Model):
+    """
+        A class to represent the News.
+    """
+
     title = models.CharField(max_length=225)
     content = models.TextField(blank=False)
     time_create = models.DateTimeField(auto_now_add=True)
@@ -19,6 +23,10 @@ class News(models.Model):
 
 
 class Category(models.Model):
+    """
+        A class to represent a Category.
+    """
+
     name = models.CharField(max_length=100, db_index=True)
 
     def __str__(self):

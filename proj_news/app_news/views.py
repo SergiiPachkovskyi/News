@@ -8,6 +8,10 @@ from .serializers import NewsSerializer, CategorySerializer
 
 
 class NewsListCreate(generics.ListCreateAPIView):
+    """
+        Class for creating news and retrieving news list
+    """
+
     queryset = News.objects.all()
     serializer_class = NewsSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
@@ -15,12 +19,19 @@ class NewsListCreate(generics.ListCreateAPIView):
 
 
 class NewsRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    """
+        Class for retrieving, updating, destroying news
+    """
     queryset = News.objects.all()
     serializer_class = NewsSerializer
     permission_classes = (IsAdminOrOwnerOrReadOnly,)
 
 
 class NewsByCategoryRetrieve(generics.ListAPIView):
+    """
+        Class for retrieving news by category
+    """
+
     serializer_class = NewsSerializer
 
     def get_queryset(self):
@@ -29,6 +40,10 @@ class NewsByCategoryRetrieve(generics.ListAPIView):
 
 
 class NewsByUserRetrieve(generics.ListAPIView):
+    """
+        Class for retrieving news by user
+    """
+
     serializer_class = NewsSerializer
     permission_classes = (IsAdminOrOwnerOrReadOnly,)
 
@@ -38,12 +53,20 @@ class NewsByUserRetrieve(generics.ListAPIView):
 
 
 class CategoryListCreate(generics.ListCreateAPIView):
+    """
+        A class for creating categories and retrieving a list of categories
+    """
+
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
 
 class CategoryRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    """
+        Class for retrieving, updating, destroying categories
+    """
+
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     permission_classes = (IsAdminOrReadOnly,)
