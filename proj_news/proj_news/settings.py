@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app_news.apps.AppNewsConfig',
     'rest_framework',
+    'rest_framework.authtoken',
+    'djoser',
 ]
 
 MIDDLEWARE = [
@@ -126,19 +128,19 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer'
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        # JWT-based auth
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
         # session-based auth
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
+        # token-based auth
+        'rest_framework.authentication.TokenAuthentication',
+        # JWT-based auth
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     # general permissions
     'DEFAULT_PERMISSION_CLASSES': [
@@ -146,8 +148,10 @@ REST_FRAMEWORK = {
     ],
     # default pagination class
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 30
+    'PAGE_SIZE': 30,
 }
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),

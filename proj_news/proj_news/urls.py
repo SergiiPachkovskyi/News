@@ -36,10 +36,14 @@ urlpatterns = [
     path('api/v1/category/<int:pk>/', CategoryRetrieveUpdateDestroy.as_view()),
 
     # session-based auth
-    path('api/v1/drf-auth/', include('rest_framework.urls')),
+    path('api/v1/session-auth/', include('rest_framework.urls')),
+
+    # token-based auth
+    path('api/v1/token-auth/', include('djoser.urls')),
+    # path('api/v1/token-auth/', include('djoser.urls.authtoken')),
 
     # jwt auth
-    path('api/v1/jwt/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/v1/jwt/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/v1/jwt/refresh/verify', TokenVerifyView.as_view(), name='token_verify'),
+    path('api/v1/jwt-auth/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/v1/jwt-auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/v1/jwt-auth/refresh/verify', TokenVerifyView.as_view(), name='token_verify'),
 ]
