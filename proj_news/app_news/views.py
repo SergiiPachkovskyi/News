@@ -45,7 +45,6 @@ class NewsByUserRetrieve(generics.ListAPIView):
     """
 
     serializer_class = NewsSerializer
-    permission_classes = (IsAdminOrOwnerOrReadOnly,)
 
     def get_queryset(self):
         user_id = self.kwargs.get('user_id')

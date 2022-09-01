@@ -4,6 +4,8 @@ News
 # General info
 API for news management
 
+![](proj_news/app_news/static/images/API.png)
+
 # Routes to implement
 | METHOD   | ROUTE                                    | FUNCTIONALITY           |
 |----------|------------------------------------------|-------------------------|
