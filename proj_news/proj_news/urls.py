@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.views.generic import TemplateView
+from rest_framework.schemas import get_schema_view
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 
 from app_news.views import NewsListCreate, NewsRetrieveUpdateDestroy, NewsByCategoryRetrieve, NewsByUserRetrieve, \
@@ -24,6 +26,17 @@ from app_news.views import NewsListCreate, NewsRetrieveUpdateDestroy, NewsByCate
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # documentation
+    path('openapi/', get_schema_view(
+        title="News",
+        description="API for managing News",
+        version="1.0.0"
+    ), name='openapi-schema'),
+    path('', TemplateView.as_view(
+            template_name='swagger-ui.html',
+            extra_context={'schema_url': 'openapi-schema'}
+        ), name='swagger-ui'),
 
     # news
     path('api/v1/news/', NewsListCreate.as_view()),
