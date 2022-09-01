@@ -85,8 +85,6 @@ class NewsTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_news_by_user_get(self):
-        self.set_credentials()
-
         response = self.client.get(f"/api/v1/news_by_user/1/")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
