@@ -50,9 +50,9 @@ $ python -m venv venv
 
 Activate the virtual environment
 ``` 
-$ source env/bin/activate #On linux Or Unix
+$ source venv/bin/activate #On linux Or Unix
 
-$ source env/Scripts/activate #On Windows  
+$ venv/Scripts/activate #On Windows  
 ```
 
 Install all requirements
